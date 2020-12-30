@@ -3,10 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 class CampsiteInfo extends Component {
-    constructor (props) {
-        super(props)
-    }
-
+  
     renderCampsite(campsite){
         
             if (campsite){
