@@ -24,50 +24,39 @@ class CampsiteInfo extends Component {
     }
 
     renderComments(comments){
-        let comment;
         if(comments){
-            console.log('kevin comments',comments);
-            comment = this.props.comments.map((comment) => {
-                return (
-                    <div>
-                        {comment.text}
-                    </div>
-                )        
-            })
-
-            console.log("kevin comment", comment);
             return(
                 <div className= "col-5-md m-1">
                     <h4>Comments</h4>
                     
-                    {/* {this.comments.map(comment => {
+                    {comments.map(comment => {
                         return(
                             <div key={comment.id}>
-                               { comment.text }
-                               { comment.author }
+                               <p>{ comment.text } <br />
+                               { comment.author }</p>
                             </div>
-                        )
-                    })} */}
+                        );
+                    })}
                     
-                    {comments[0]}
                 </div>
-                // <div />
+                
             )
         }
 
-        return <div className= "col-5-md m-1">
-                    <h2> No Comments</h2>
-                </div> 
-
+        return <div />
     }
     
     render() {
-        return (
-            <div className = "col">
-                {this.renderCampsite(this.props.campsite)}
-                {this.renderComments(this.props.campsite)}
-            </div>
-        )
+        if(this.props.campsite){
+            return (
+                <div className = "col">
+                    {this.renderCampsite(this.props.campsite)}
+                    {this.renderComments(this.props.campsite.comments)}
+                </div>
+            )
+            
+        }
+        return <div />
     }
 }
 
